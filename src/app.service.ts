@@ -1,12 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { MessageDto } from './message.dto';
 
 @Injectable()
 export class AppService {
   private logger=new Logger('Provider');
   
-  getHello(message:string): string {
+  getHello(message:MessageDto): string {
     this.logger.log('Provider is answering')
-    return `Hello ${message}`;
+    return `Hello ${message.name} ${message.family}`;
   }
   getHello2(message:string): string {
     this.logger.log('Provider is answering')
